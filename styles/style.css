@@ -107,32 +107,6 @@ a {
   font-size: 0.9em;
   font-weight: 600;
 }
-#content #left #mapid .zoom {
-  position: absolute;
-  right: 25px;
-  top: 25px;
-  width: 2px;
-  height: 70px;
-  background: white;
-}
-#content #left #mapid .zoom:before, #content #left #mapid .zoom:after {
-  text-align: center;
-  font-weight: 600;
-  position: absolute;
-  color: #7BC087;
-  background: white;
-  width: 20px;
-}
-#content #left #mapid .zoom:before {
-  content: '+';
-  top: -10px;
-  right: -8px;
-}
-#content #left #mapid .zoom:after {
-  content: '-';
-  bottom: -10px;
-  right: -8px;
-}
 #content #left #mapid .map-locator {
   position: absolute;
   top: 40%;
