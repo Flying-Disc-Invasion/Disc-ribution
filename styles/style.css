@@ -97,7 +97,7 @@ a {
 #content #left #mapid {
   height: 600px;
   position: relative;
-  background-image: url("http://f.cl.ly/items/452R3S1440221Z3m372j/israel.png");
+  background-color: black;
   background-size: cover;
 }
 #content #left #mapid p {
@@ -107,25 +107,25 @@ a {
   font-size: 0.9em;
   font-weight: 600;
 }
-#content #left ul#location-bar {
+#content #left ul#filter-bar {
   width: 100%;
   text-align: center;
   display: table;
 }
-#content #left ul#location-bar li {
+#content #left ul#filter-bar li {
   display: table-cell;
   padding: 15px;
   background: #5FA269;
-  border-right: solid thin #7fb587;
+  border-right: solid thin #004d00;
 }
-#content #left ul#location-bar li:last-of-type {
+#content #left ul#filter-bar li:last-of-type {
   border-right: 0;
 }
-#content #left ul#location-bar li:hover {
-  background: #4c8254;
+#content #left ul#filter-bar li:hover {
+  background: #286731;
 }
-#content #left ul#location-bar .active {
-  background: #4c8254;
+#content #left ul#filter-bar .active {
+  background: #286731;
 }
 #content #right {
   float: left;

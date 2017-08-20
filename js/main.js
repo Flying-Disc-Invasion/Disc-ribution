@@ -3,6 +3,8 @@ document.addEventListener("DOMContentLoaded", go);
 
 // kick things off after document has loaded
 function go() {
+    // non-map TODO: get starting filter settings
+
     // get place holder
     var Places = getPlaceHolder();
 
@@ -21,6 +23,8 @@ function go() {
     }).addTo(mymap);
 
     var marker = L.marker(Places.DEO.LatLng).addTo(mymap);
+
+    setupFilterListeners(L, mymap);
 /*
     var circle = L.circle([51.508, -0.11], {
         color: 'red',
@@ -73,4 +77,22 @@ function getPlaceHolder() {
             Zoom: 13
         }
     };
+}
+
+// ================ Internal functions ===================
+
+// Capture the click event on a filter type
+function setupFilterListeners(L, mymap) {
+    // get filter elements
+    var filterElems = $('#filter-bar li');
+
+    // set click listeners on each filter
+    filterElems.click(function(e){
+        // get element data
+        var $this = $(this),
+            selectedFilter = $this.data('filter');
+
+        // toggle 'active' class so style changes
+        $this.toggleClass('active');
+    });
 }
