@@ -95,7 +95,7 @@ a {
   }
 }
 #content #left #mapid {
-  height: 388px;
+  height: 600px;
   position: relative;
   background-image: url("http://f.cl.ly/items/452R3S1440221Z3m372j/israel.png");
   background-size: cover;
@@ -106,65 +106,6 @@ a {
   padding-left: 30px;
   font-size: 0.9em;
   font-weight: 600;
-}
-#content #left #mapid .map-locator {
-  position: absolute;
-  top: 40%;
-  left: 30%;
-  border-radius: 15px;
-  height: 30px;
-  width: 30px;
-  background: rgba(0, 0, 0, 0.4);
-  border: solid 2px white;
-}
-#content #left #mapid .map-locator:before {
-  content: '';
-  position: absolute;
-  top: 9px;
-  left: 9px;
-  width: 8px;
-  height: 8px;
-  background: white;
-  border-radius: 5px;
-}
-#content #left #mapid .map-locator .tooltip {
-  position: absolute;
-  color: #394141;
-  left: 50px;
-  top: -10px;
-  background: white;
-  font-size: 0.8em;
-  font-weight: 600;
-  -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-}
-#content #left #mapid .map-locator .tooltip:before {
-  content: '';
-  position: absolute;
-  left: -10px;
-  top: 14px;
-  border-right: solid white 10px;
-  border-top: solid transparent 8px;
-  border-bottom: solid transparent 8px;
-}
-#content #left #mapid .map-locator .tooltip [class*="entypo-"] {
-  min-width: 25px;
-  display: inline-block;
-  text-align: center;
-  border-right: solid thin #CCC;
-  margin-right: 5px;
-}
-#content #left #mapid .map-locator .tooltip li {
-  border-bottom: solid thin #CCC;
-  padding: 10px;
-  white-space: nowrap;
-}
-#content #left #mapid .map-locator .tooltip li a {
-  color: #51B2D6;
-}
-#content #left #mapid .map-locator .tooltip li:hover [class*="entypo-"] {
-  color: #51B2D6;
 }
 #content #left ul#location-bar {
   width: 100%;
