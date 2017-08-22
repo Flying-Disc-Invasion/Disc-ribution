@@ -17,6 +17,8 @@
         <!-- jQuery 3.2.1 -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     
+        <script src="js/utils.js"></script>
+        <script src="js/data_holder.js"></script>
         <script src="js/main.js"></script>
     </head>
     <body>
@@ -37,16 +39,16 @@
                     </div>
                     <ul id='filter-bar'>
                         <li>
-                            <a class='filter' data-filter='Teams'>Teams</a>
+                            <a class='filter' data-filter='Team'>Teams</a>
                         </li>
                         <li class='active'>
                             <a class='filter' data-filter='Pick-up'>Pick-up</a>
                         </li>
                         <li class='active'>
-                            <a class='filter' data-filter='Tournaments'>Tournaments</a>
+                            <a class='filter' data-filter='Tournament'>Tournaments</a>
                         </li>
                         <li>
-                            <a class='filter' data-filter='Associations'>Associations</a>
+                            <a class='filter' data-filter='Association'>Associations</a>
                         </li>
                     </ul>
                 </div>
@@ -74,13 +76,13 @@
                         <input placeholder='Email' type='email'>
                         <input placeholder='Subject' type='text'>
                         <textarea placeholder='Message' rows='4'></textarea>
-                        <input placeholder='Send' type='submit'>
+                        <input id="test" placeholder='Send' type='submit'>
                     </form>
                     <p>other way</p>
                     <p class='other entypo-mail'>
                         <a href='#'>flyingdiscinvasion@gmail.com</a>
                     </p>
-                    <p class='other entypo-phone'>(+972 2) 629 06 32</p>
+                    <p class='other entypo-phone'>(+20) 109 243 9512</p>
                 </div>
             </div>
         </div>
