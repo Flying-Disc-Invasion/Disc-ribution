@@ -10,10 +10,12 @@ function data_start_place() {
 
 /**
  * Function holds the data for all data that can be shown on the map!
- * // TODO: Get this data form Firebase, not from here!
+ * TODO: Get this data form Firebase, not from here!
+ * TODO: add Popup data
+ * TODO: add Icon data
  * 
  * @returns {object} - data holder object - all data!
- */
+ */ 
 function data_holder_getData() {
     return {
         // type: 'None'

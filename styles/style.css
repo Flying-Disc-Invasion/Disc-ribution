@@ -1,9 +1,20 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,600);
-@import url(http://weloveiconfonts.com/api/?family=brandico|entypo);
+@import url(http://weloveiconfonts.com/api/?family=brandico|entypo|zocial);
 /* entypo */
 [class*="entypo-"]:before {
   font-family: 'entypo', sans-serif;
   padding-right: 10px;
+  padding-left: 10px;
+}
+/* this icon is a spacer only */
+/* .entypo-block:before {
+  opacity: 0;
+} */
+/* zocial */
+[class*="zocial-"]:before {
+  font-family: 'zocial', sans-serif;
+  padding-right: 10px;
+  padding-left: 10px;
 }
 
 body {

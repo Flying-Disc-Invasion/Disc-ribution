@@ -27,7 +27,17 @@ function go() {
 
     // set up filter click events
     setupFilterListeners( [layer_dict, type_dict], L, mymap);
-    
+
+    // handle contact form 'submit' click
+    handleContactFormSubmit();
+
+    function onMapClick(e) {
+        L.popup()
+            .setLatLng(e.latlng)
+            .setContent("You clicked the map at " + e.latlng.toString())
+            .openOn(mymap);
+    }
+
 /*
     var circle = L.circle([51.508, -0.11], {
         color: 'red',
@@ -169,4 +179,36 @@ function getPlaceIDsByType(type_dict, type) {
             console.error('Error: Could not find places with type - <' + type + '>');
             return {};
     }
+}
+
+/**
+ * Function creates form submit listener. When form is submitted, default form
+ * action is prevented, and new window / tab is opened where user can email
+ * Flying Disc Invasion with any questions / inquiries
+ * 
+ */
+function handleContactFormSubmit() {
+    // set up listener to submit event
+    $('form#contact').submit(function(e) {
+        e.preventDefault();
+
+        let FDIemail = 'flying.disc.invasion@gmail.com';
+
+        let $CCemail =   $(this).find('#contact-email');
+        let $subject =   $(this).find('#contact-subject');
+        let $body =      $(this).find('#contact-body');
+
+        // create mailto link and direct user to it.
+        window.open(
+            'mailto:' + FDIemail +
+            '?cc=' + $CCemail.val() +
+            '&subject=' + $subject.val() +
+            '&body=' + $body.val(),
+            '_blank'
+        );
+
+        $CCemail.val('');
+        $subject.val('');
+        $body.val('');
+    });
 }
