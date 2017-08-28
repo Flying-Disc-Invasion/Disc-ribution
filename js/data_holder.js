@@ -11,7 +11,7 @@ function data_start_place() {
 /**
  * Function holds the data for all data that can be shown on the map!
  * TODO: Get this data form Firebase, not from here!
- * TODO: add Popup data
+ * TODO: add rest of Popup data
  * TODO: add Icon data
  * 
  * @returns {object} - data holder object - all data!
@@ -28,22 +28,54 @@ function data_holder_getData() {
 
         // type: 'Pick-up'
         'DEO': {                    Type: data_type_pickup(),
-            Loc: {  Lat: 30.031998, Lng: 31.211364  },  Zoom: 10
+            Loc: {  Lat: 30.031998, Lng: 31.211364  },  Zoom: 10,
+            Popup_Fn: utils_pop_pickup,
+            Popup_Data: {
+                Pop_title: 'DEO Weekly Pickup',
+
+                Pop_date: 'Friday',
+                Pop_time: '4:00 pm',
+                Pop_recurring: 'weekly',
+
+                Pop_facebook: 'https://www.facebook.com/groups/frisbee.eg/'
+            }
         },
         
         // type: 'Team':
         'Vibranium': {              Type: data_type_team(),
-            Loc: {  Lat: 30.083319, Lng: 31.333850  },  Zoom: 10
+            Loc: {  Lat: 30.083319, Lng: 31.333850  },  Zoom: 10,
+            Popup_Fn: utils_pop_team,
+            Popup_Data: {
+                Pop_title: 'Vibranium Practice (Everyone welcome!)',
+                
+                Pop_date: 'Saturday',
+                Pop_time: '4:00 pm',
+                Pop_recurring: 'weekly',
+                
+                Pop_facebook: 'https://www.facebook.com/groups/843643645773323/'
+            }
         },
 
         // type: 'Tournament'
         'BUX-1': {                  Type: data_type_tournament(),
-            Loc: {  Lat: 30.950335, Lng: 28.828621  },  Zoom: 13
+            Loc: {  Lat: 30.950335, Lng: 28.828621  },  Zoom: 13,
+            Popup_Fn: utils_pop_tournament,
+            Popup_Data: {
+                Pop_title: 'BUX-1',
+                Pop_date: 'Aug 25 - 26, 2017',
+                Pop_loc_name: 'Lazorde Bay'
+            }
         },
 
         // type: 'Association'
         'FDI': {                    Type: data_type_association(),
-            Loc: {  Lat: 30.035482, Lng: 31.235561  },  Zoom: 10
+            Loc: {  Lat: 30.035482, Lng: 31.235561  },  Zoom: 10,
+            Popup_Fn: utils_pop_association,
+            Popup_Data: {
+                Pop_title: 'Flying Disc Invasion (FDI)',
+                Pop_website: 'http://flying.disc.invasion.com',
+                Pop_facebook: 'https://www.facebook.com/FlyingDiscInvasion/'
+            }
         }
     };
 }
@@ -91,6 +123,13 @@ function data_holder_createDataDicts(map) {
         if (add) {
             newLayer = L.marker( utils_getLatLng(placeDetails) )
                 .addTo(map);
+
+            // add popup if popup data exists in Place obj
+            if (placeDetails.Popup_Fn) {
+                newLayer.bindPopup(
+                    placeDetails.Popup_Fn( placeDetails.Popup_Data, newLayer )
+                );
+            }
         }
 
         // build up layer dictionary

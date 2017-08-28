@@ -4,7 +4,10 @@ document.addEventListener("DOMContentLoaded", go);
 // kick things off after document has loaded
 function go() {
     // set up Leaflet.js map
-    var mymap = L.map('mapid').setView(
+    var mymap = L.map('mapid', {
+        // hide default zoom bottons
+        zoomControl: false
+    }).setView(
         data_start_place().Loc,
         data_start_place().Zoom
     );
@@ -101,6 +104,15 @@ function filterPlaces(filterType, add, data_dicts, L, mymap) {
         if (add) {
             layerData.layer = L.marker( utils_getLatLng(layerData.details) )
                 .addTo(mymap);
+
+            // add popup if data exists in layer
+            if (layerData.details.Popup_Fn) {
+                layerData.layer.bindPopup(
+                    layerData.details.Popup_Fn(
+                        layerData.details.Popup_Data, layerData.layer
+                    )
+                );
+            }
         }   
         
         // remove layer (place) from map
