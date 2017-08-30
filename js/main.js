@@ -102,7 +102,16 @@ function filterPlaces(filterType, add, data_dicts, L, mymap) {
 
         // if we want to add this layer on, add it!
         if (add) {
-            layerData.layer = L.marker( utils_getLatLng(layerData.details) )
+            let layerSettings = {};
+
+            // get icon & add to layer settings if found
+            let icon = icon_data_getStandardIcon(layerData.details.Type);
+            if (icon)
+                layerSettings['icon'] = icon;
+            
+            // create layer
+            layerData.layer = L.marker( utils_getLatLng(layerData.details),
+                layerSettings )
                 .addTo(mymap);
 
             // add popup if data exists in layer

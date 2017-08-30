@@ -64,6 +64,8 @@ function data_holder_getData() {
                 Pop_title: 'BUX-1',
                 Pop_date: 'Aug 25 - 26, 2017',
                 Pop_loc_name: 'Lazorde Bay'
+                // TODO:
+                // tournament logo
             }
         },
 
@@ -121,7 +123,15 @@ function data_holder_createDataDicts(map) {
 
         // if filter is 'active', add to map at beginning
         if (add) {
-            newLayer = L.marker( utils_getLatLng(placeDetails) )
+            let layerSettings = {};
+
+            // get icon & add to layer settings if found
+            let icon = icon_data_getStandardIcon(placeType);
+            if (icon)
+                layerSettings['icon'] = icon;
+
+            // create marker
+            newLayer = L.marker( utils_getLatLng(placeDetails), layerSettings )
                 .addTo(map);
 
             // add popup if popup data exists in Place obj
@@ -152,76 +162,67 @@ function data_holder_createDataDicts(map) {
     return [layer_dict, type_dict];
 }
 
-/**
- * Function combines 2nd layer of inner keys of object into 1 big object
- * 
- * // TODO: finish this
- * @param {any} obj 
- * @returns 
- */
-// function combineInnerKeys(outerObj) {
-//     let holder = {};
+function icon_data_getStandardIcon(type) {
+    let iconSettings;
 
-//     Object.keys(outerObj).forEach(function(oKey, index) {
-//         let innerObj = outerObj[oKey];
+    switch(type) {
+        case 'None':    // no special icon for now
+            break;
 
-//         Object.keys(innerObj).forEach(function(iKey, index) {
-//             if (holder[ iKey ] !== undefined) {
-//                 console.error('Error: key <' + key + '> already found in holder obj');
-//                 return false;
-//             } else {
-//                 holder[ iKey ] = innerObj[ iKey ];
-//             }
-//         })
-//     });
+        case 'Team':
+            iconSettings = {
+                iconUrl: './icons/team-48.png',
+                iconSize: [48, 48],
+                iconAnchor: [24, 48],
+                popupAnchor: [-5, -40]
+                // shadowUrl: 'my-icon-shadow.png',
+                // shadowSize: [68, 95],
+                // shadowAnchor: [22, 94]
+            }; break;
 
-//     return holder;
-// }
+        case 'Pick-up':
+            iconSettings = {
+                iconUrl: './icons/pick-up-48.png',
+                iconSize: [48, 48],
+                iconAnchor: [24, 48],
+                popupAnchor: [-5, -40]
+                // shadowUrl: 'my-icon-shadow.png',
+                // shadowSize: [68, 95],
+                // shadowAnchor: [22, 94]
+            }; break;
 
+        case 'Tournament':
+            iconSettings = {
+                iconUrl: './icons/tournament-48.png',
+                iconSize: [48, 48],
+                iconAnchor: [24, 48],
+                popupAnchor: [-5, -40]
+                // shadowUrl: 'my-icon-shadow.png',
+                // shadowSize: [68, 95],
+                // shadowAnchor: [22, 94]
+            }; break;
 
-/**
- * Function returns Place object with specified name. If no places exist (name
- * is spelled wrong, or something), empty object returned
- * 
- * @param {string} name - name of Place we're looking for
- * @returns {object} - Place or empty (if not found)
- */
-// function getPlaceByName(name) {
-//     var lib = {
-//         'DEO': {
-//             DataType: data_type_pickup(),
-//             Loc: {  Lat: 30.031998, Lng: 31.211364  },
-//             Zoom: 10
-//         },
-//         'BUX-1': {
-//             DataType: data_type_tournament(),
-//             Loc: {  Lat: 30.950335, Lng: 28.828621  },
-//             Zoom: 13
-//         },
-//         'Cairo': {
-//             DataType: data_type_none(),
-//             Loc: {  Lat: 30.041952, Lng: 31.243517  },
-//             Zoom: 13
-//         },
-//         'MapStart': {
-//             DataType: data_type_none(),
-//             Loc: {  Lat: 30.041952, Lng: 31.243517  },
-//             Zoom: 7
-//         }
-//     };
+        case 'Association':
+            iconSettings = {
+                iconUrl: './icons/association-48.png',
+                iconSize: [48, 48],
+                iconAnchor: [24, 48],
+                popupAnchor: [-5, -40]
+                // shadowUrl: 'my-icon-shadow.png',
+                // shadowSize: [68, 95],
+                // shadowAnchor: [22, 94]
+            }; break;
 
-//     // return available Place
-//     if (lib[name] === undefined) {
-//         if (lib[name.toUpperCase()] === undefined) {
-//             // no matches
-//             console.error('Error: Could not find places with name - <' + name + '>');
-//             return {};
-//         } else {
-//             // match on uppercase name!
-//             return lib[name.toUpperCase()];
-//         }
-//     } else {
-//         // match on normal name
-//         return lib[name];
-//     }
-// }
+        default:
+            console.warn('Place type: <' + type + '> has no associated standard' +
+                ' icon');
+    }
+
+    // if settings were stored above, create Leaflet icon and return it
+    if (iconSettings) {
+        return L.icon( iconSettings );
+    }
+
+    // else, return undefined (no icon)
+    return undefined;
+}
