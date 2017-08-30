@@ -1,5 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,600);
-@import url(https://weloveiconfonts.com/api/?family=brandico|entypo|zocial);
+@import url(http://weloveiconfonts.com/api/?family=brandico|entypo|zocial);
+/* TODO: change urls to downloaded icons so we don't have to do http vs https */
 /* entypo */
 [class*="entypo-"]:before {
   font-family: 'entypo', sans-serif;
