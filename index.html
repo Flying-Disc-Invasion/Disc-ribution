@@ -9,6 +9,9 @@
             integrity="sha512-07I2e+7D8p6he1SIM+1twR5TIrhUQn9+I6yjqD53JQjFiMf8EtC93ty0/5vJTZGF8aAocvHYNEDJajGdNx1IsQ=="
             crossorigin=""/>
 
+        <!-- Font-Awesome CSS -->
+        <link rel="stylesheet" href="icons/font-awesome-4.7.0/css/font-awesome.min.css">
+
         <!-- Leaflet JS -->
         <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"
             integrity="sha512-A7vV8IFfih/D732iSSKi20u/ooOfj/AGehOKq0f4vLT1Zr2Y+RX7C+w8A1gaSasGtRUZpF/NZgzSAu4/Gc41Lg=="
@@ -27,14 +30,13 @@
                 <div class='circles'></div>
                 <div class='circles'></div>
                 <div class='circles'></div>
-                <p>Contact Us</p>
+                <p>Disc-Ribution</p>
                 <span class='arrow entypo-resize-full'></span>
             </div>
             <div id='content'>
                 <div id='left'>
                     <div id='mapid'>
-                        <!-- TODO: make title visible -->
-                        <p>Where To Find Us - Basic Title</p>
+                        <!-- Title handled by browser-bar -->
                         <!-- Map handled by leaflet.js -->
                     </div>
                     <ul id='filter-bar'>
@@ -57,19 +59,30 @@
                     <div id='social'>
                         <a class='social' target='_blank'
                             href='https://www.facebook.com/FlyingDiscInvasion/'>
-                            <span class='entypo-facebook'></span>
+                            <!-- <span class='entypo-facebook'></span> -->
+                            <i class="fa fa-facebook"></i>
                         </a>
                         <a class='social' target='_blank'
                             href='https://twitter.com/FlyDiscInvasion'>
-                            <span class='entypo-twitter'></span>
+                            <!-- <span class='entypo-twitter'></span> -->
+                            <i class="fa fa-twitter"></i>
                         </a>
                         <a class='social' target='_blank'
                             href='https://www.youtube.com/channel/UCAOZsX0dTOWeu0Jb7vcGUtA'>
-                            <span class='zocial-youtube'></span>
+                            <!-- <span class='zocial-youtube'></span> -->
+                            <i class="fa fa-youtube-play"></i>
                         </a>
-                        <a class='social' target='_blank'
+                        <!-- <a class='social' target='_blank'
                             href='https://www.instagram.com/flying.disc.invasion/'>
                             <span class='entypo-instagrem'></span>
+                        </a> -->
+                        <!-- <a class='social' target='_blank'
+                            href='https://www.instagram.com/flying.disc.invasion/'>
+                            <img src='./img/instagram_circle-128.png' height='24' width='24'>
+                        </a> -->
+                        <a class='social' target='_blank'
+                            href='https://www.instagram.com/flying.disc.invasion/'>
+                            <i class="fa fa-instagram"></i>
                         </a>
                     </div>
                     <form id='contact'>
@@ -81,11 +94,19 @@
                         <input placeholder='Send' type='submit'>
                     </form>
                     <!-- TODO: put something else here, maybe Paypal -->
-                    <p>other way</p>
+                    <p>support the invasion</p>
                     <p class='other entypo-mail'>
                         <a href='#'>flying.disc.invasion@gmail.com</a>
                     </p>
-                    <p class='other entypo-phone'>(+20) 109 243 9512</p>
+                    <p class='other'>
+                        <i class="fa fa-sign-in"></i> join us
+                    </p>
+                    <p class='other'>
+                        <i class="fa fa-paypal"></i> paypal
+                    </p>
+                    <p class='other'>
+                        <i class="fa fa-phone"></i> phone
+                    </p>
                 </div>
             </div>
         </div>
